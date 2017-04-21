@@ -1,0 +1,97 @@
+@mixin mq($width) {
+  @media only screen and (max-width: $width+ 'px') {
+    @content
+  }
+}
+
+//text render
+@mixin render {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-smoothing: grayscale;
+  text-rendering: auto;
+}
+
+//absolute center
+@mixin acenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, 50%);
+}
+
+//font src
+@mixin font($alias, $name) {
+  @font-face {
+    font-family: $alias;
+    src: url('../fonts/' + $name + '.woff') format('woff'),
+    url('../fonts/' + $name + '.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+//clearfix
+@mixin clr {
+  &::after,
+  &::before {
+    content: '';
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+  *zoom: 1;
+}
+
+//placeholder color
+@mixin plhColor($color) {
+  &:-moz-placeholder,
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+  &::-webkit-input-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+}
+
+//placeholder
+@mixin plh {
+  &::-webkit-input-placeholder {
+    @content
+  }
+  &:-moz-placeholder {
+    @content
+  }
+  &::-moz-placeholder {
+    @content
+  }
+  &:-ms-input-placeholder {
+    @content
+  }
+  &::placeholder {
+    @content
+  }
+}
+
+//border-radius
+@mixin br($radius) {
+  border-radius: $radius
+}
+
+//box-shadow
+@mixin bs($shadow) {
+  box-shadow: $shadow
+}
+
+//link
+@mixin link($link, $hover) {
+  a {
+    color: $link;
+    &:hover {
+      color: $hover
+    }
+  }
+}

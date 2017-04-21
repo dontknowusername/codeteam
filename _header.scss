@@ -1,0 +1,258 @@
+$homeColorElem: orange;
+
+.wrapper {
+  position: relative;
+}
+
+.first {
+  position: relative;
+  height: 100vh;
+  background: url('../img/bghead.jpg') center 0/cover no-repeat;
+}
+
+.wrap {
+  position: fixed;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 15px;
+}
+
+.logo {
+  &__text {
+    position: relative;
+    padding: 0 20px;
+    font-family: 'comics';
+    font-size: 26px;
+    color: #fff;
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      content: '{';
+      font-size: 30px;
+      color: orange;
+      transform: translate(0, -50%);
+    }
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      content: '}';
+      font-size: 30px;
+      color: orange;
+      transform: translate(0, -50%);
+    }
+  }
+}
+
+.menu {
+  &__list {
+    display: flex;
+  }
+  &__item {
+    margin-left: 20px;
+  }
+  &__link {
+    position: relative;
+    color: #fff;
+    transition: color 0.3s ease;
+    &::before {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+    &::after {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: $homeColorElem;
+      transition: width 0.3s ease;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.center {
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  h1 {
+    padding: 0 15px;
+    margin-bottom: 50px;
+    font-family: sans-serif;
+    font-size: 46px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    color: #fff;
+  }
+}
+
+.btn-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  &__item {
+    width: 33%;
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+
+.button {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 20px;
+  &_home {
+    border-left-color: $homeColorElem;
+    border-right-color: $homeColorElem;
+    color: #fff;
+    transition: padding 0.3s ease;
+    &::before {
+      position: absolute;
+      top: -1px;
+      left: 0;
+      content: '';
+      width: 30px;
+      height: 1px;
+      background-color: $homeColorElem;
+      transition: all 0.3s ease;
+    }
+    &::after {
+      position: absolute;
+      bottom: -1px;
+      right: 0;
+      content: '';
+      width: 30px;
+      height: 1px;
+      background-color: $homeColorElem;
+      transition: all 0.3s ease;
+    }
+    &:hover::after, &:hover::before {
+      width: 100%;
+    }
+    &:hover {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+}
+
+.home-form {
+  position: fixed;
+  top: 0;
+  right: -500px;
+  z-index: 100;
+  padding: 60px 20px 20px;
+  height: 100vh;
+  background: #fff;
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+  &__close {
+    position: absolute;
+    top: 5px;
+    right: 50%;
+    display: block;
+    margin-right: -25px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background: url('../img/close.svg') center/cover no-repeat;
+  }
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #02a8f4;
+  }
+  &__input {
+    margin-bottom: 5%;
+    padding: 8px 15px;
+    box-sizing: border-box;
+    border: 1px solid #cdcdcd;
+    @include br(3px);
+    color: #666;
+    @include plhColor(#999);
+    @include plh {
+      font-size: 14px;
+    }
+  }
+  &__text {
+    height: 120px;
+    @extend .home-form__input;
+    resize: none;
+    outline: 0;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes showForm {
+  50% {
+    right: 20px;
+    opacity: .5;
+  }
+
+  100% {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes hideForm {
+  0% {
+    right: 0;
+    opacity: .5;
+  }
+
+  100% {
+    right: -500px;
+    opacity: 1;
+  }
+}
+
+.animate-show {
+  animation: showForm 0.5s ease;
+  animation-fill-mode: forwards;
+}
+
+.animate-hide {
+  animation: hideForm 0.3s ease;
+  animation-fill-mode: forwards;
+}
+
