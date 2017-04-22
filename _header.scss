@@ -160,18 +160,15 @@ $homeColorElem: orange;
   }
 }
 
-.home-form {
+.form {
   position: fixed;
   top: 0;
   right: -500px;
   z-index: 100;
+  width: 350px;
   padding: 60px 20px 20px;
   height: 100vh;
   background: #fff;
-  &__form {
-    display: flex;
-    flex-direction: column;
-  }
   &__close {
     position: absolute;
     top: 5px;
@@ -183,6 +180,11 @@ $homeColorElem: orange;
     cursor: pointer;
     background: url('../img/close.svg') center/cover no-repeat;
   }
+}
+
+.form-order {
+  display: flex;
+  flex-direction: column;
   &__title {
     font-size: 24px;
     font-weight: bold;
@@ -191,7 +193,7 @@ $homeColorElem: orange;
     color: #02a8f4;
   }
   &__input {
-    margin-bottom: 5%;
+    margin-bottom: 15px;
     padding: 8px 15px;
     box-sizing: border-box;
     border: 1px solid #cdcdcd;
@@ -201,10 +203,31 @@ $homeColorElem: orange;
     @include plh {
       font-size: 14px;
     }
+    &--file {
+      display: none;
+    }
+  }
+  &__file {
+    position: relative;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #cdcdcd;
+    @include br(3px);
+    color: #666;
+  }
+  &__label {
+    display: block;
+    cursor: pointer;
+    & span {
+      display: inline-block;
+      padding: 8px 15px;
+      background: #02a8f4;
+      color: #fff;
+    }
   }
   &__text {
     height: 120px;
-    @extend .home-form__input;
+    @extend .form-order__input;
     resize: none;
     outline: 0;
   }
