@@ -1,0 +1,36 @@
+.portfolio {
+  margin-top: 100px;
+  &__title {
+    margin-bottom: 50px;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+.work-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+  border: 1px solid #000;
+  &__item {
+    position: relative;
+    margin: 0 15px 30px;
+    width: calc(100% / 4 - 30px);
+    border: 1px solid red;
+    box-sizing: border-box;
+  }
+  &__pic {
+    width: 100%;
+    display: block;
+  }
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+  }
+}

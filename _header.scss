@@ -1,19 +1,13 @@
 $homeColorElem: orange;
 
-.wrapper {
-  position: relative;
-}
-
-.first {
-  position: relative;
-  height: 100vh;
-  background: url('../img/bghead.jpg') center 0/cover no-repeat;
-}
-
-.wrap {
+.fixed-header {
   position: fixed;
+  z-index: 999;
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
+  &--bg {
+    background: rgba(0, 0, 0, 0.9);
+  }
 }
 
 .header {
@@ -206,25 +200,43 @@ $homeColorElem: orange;
     &--file {
       display: none;
     }
+    &--sbm {
+      border: 0;
+      background: #02a8f4;
+      color: #fff;
+      cursor: pointer;
+    }
   }
   &__file {
     position: relative;
     margin-bottom: 15px;
     box-sizing: border-box;
     border: 1px solid #cdcdcd;
+    overflow: hidden;
     @include br(3px);
     color: #666;
   }
   &__label {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 100%;
     cursor: pointer;
-    & span {
-      display: inline-block;
-      padding: 8px 15px;
-      background: #02a8f4;
-      color: #fff;
-    }
+  }
+  &__load {
+    display: inline-block;
+    flex-shrink: 0;
+    padding: 8px 15px;
+    color: #fff;
+    vertical-align: middle;
+    background: #02a8f4;
+  }
+  &__choose {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #999;
+    vertical-align: middle;
+    @include line-text();
   }
   &__text {
     height: 120px;
@@ -279,4 +291,3 @@ $homeColorElem: orange;
   animation: hideForm 0.3s ease;
   animation-fill-mode: forwards;
 }
-
